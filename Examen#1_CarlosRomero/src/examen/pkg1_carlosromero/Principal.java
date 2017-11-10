@@ -172,7 +172,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jPanel2.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 170, 70));
 
-        jTabbedPane1.addTab("Modificar", jPanel2);
+        jTabbedPane1.addTab("Eliminar", jPanel2);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -185,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 431, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Eliminar", jPanel4);
+        jTabbedPane1.addTab("Modificar", jPanel4);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -252,6 +252,9 @@ public class Principal extends javax.swing.JFrame {
                         X=X+1;
                     }
                 }
+            if(!fam.isSelected() && !per.isSelected()){
+                    JOptionPane.showMessageDialog(this,"Debe Seelcionar un tipo de Persona!!", "Datos Incorrectos!", 0);
+            }
             if(fam.isSelected()){                
                 if(X>8);
                 Rol=JOptionPane.showInputDialog("Ingrese el Rol:","Madre, Padre, Hermana, Hermano o Esposo");
@@ -277,13 +280,17 @@ public class Principal extends javax.swing.JFrame {
                 modelo.addElement(Y);
                 personas.setModel(modelo);
                 personas.setModel(modelo);
-            }else{
-                JOptionPane.showMessageDialog(this, "Debe Seleccionar Un tipo!");
             }
-//               txnombre.setText("");
-//               txID.setText("");
-//               edad.setText("");
-//               ecivil.setText("");
+            String c="kim123";
+            String Contra=JOptionPane.showInputDialog(this, "Ingrese la Contarseña:");
+            while(!Contra.equals(c)){
+                JOptionPane.showMessageDialog(this,"Contraseña Incorrecta!", "Error al Guardar Persona", 0);
+                Contra=JOptionPane.showInputDialog(this, "Ingrese la Contarseña:");
+            }
+               txnombre.setText("");
+               txID.setText("");
+               edad.setText("");
+               ecivil.setText("");
         }catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Ocurrió una error y no se guardaron los datos!");
         }
@@ -311,8 +318,7 @@ public class Principal extends javax.swing.JFrame {
         if (tabla.getSelectedRow()>=0) {
             DefaultTableModel modelo =(DefaultTableModel) tabla.getModel();
             modelo.removeRow(tabla.getSelectedRow());
-            tabla.setModel(modelo);
-            person.remove(tabla.getSelectedRow()+1);
+            person.remove(tabla.getSelectedRow());
             tabla.setModel(modelo);
             System.out.println(person);
         }
