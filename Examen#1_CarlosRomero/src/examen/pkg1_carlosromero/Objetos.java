@@ -13,7 +13,7 @@ public class Objetos {
     public String Color;
     public String Descripcion;
     public String Marca;
-    public double Tamaño;
+    public double Tamano;
     public int Calidad;
     public double Precio;
     public Personas Duenio;
@@ -21,11 +21,11 @@ public class Objetos {
     public Objetos() {
     }
 
-    public Objetos(String Color, String Descripcion, String Marca, double Tamaño, int Calidad, double Precio, Personas Duenio) {
+    public Objetos(String Color, String Descripcion, String Marca, double Tamano, int Calidad, double Precio, Personas Duenio) {
         this.Color = Color;
         this.Descripcion = Descripcion;
         this.Marca = Marca;
-        this.Tamaño = Tamaño;
+        this.Tamano = Tamano;
         this.Calidad = Calidad;
         this.Precio = Precio;
         this.Duenio = Duenio;
@@ -56,11 +56,11 @@ public class Objetos {
     }
 
     public double getTamaño() {
-        return Tamaño;
+        return Tamano;
     }
 
     public void setTamaño(double Tamaño) {
-        this.Tamaño = Tamaño;
+        this.Tamano = Tamaño;
     }
 
     public int getCalidad() {
