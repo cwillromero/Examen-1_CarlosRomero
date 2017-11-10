@@ -48,9 +48,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         m = new javax.swing.JRadioButton();
         f = new javax.swing.JRadioButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        mensajes = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         guardar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -170,18 +167,8 @@ public class Principal extends javax.swing.JFrame {
         f.setText("F");
         Agregar.add(f, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
 
-        mensajes.setEditable(false);
-        mensajes.setColumns(20);
-        mensajes.setRows(5);
-        jScrollPane1.setViewportView(mensajes);
-
-        Agregar.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 270, 140));
-
-        jLabel7.setText("Mensajes:");
-        Agregar.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 70));
-
         jLabel6.setText("Tipo de Persona:");
-        Agregar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, 90, 20));
+        Agregar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 90, 20));
 
         guardar.setText("Guardar");
         guardar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -189,7 +176,7 @@ public class Principal extends javax.swing.JFrame {
                 guardarMouseClicked(evt);
             }
         });
-        Agregar.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 170, 140));
+        Agregar.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 170, 140));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Agregar:");
@@ -197,11 +184,11 @@ public class Principal extends javax.swing.JFrame {
 
         buttonGroup1.add(per);
         per.setText("Personal");
-        Agregar.add(per, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 90, 30));
+        Agregar.add(per, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 90, 30));
 
         buttonGroup1.add(fam);
         fam.setText("Familiar");
-        Agregar.add(fam, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, 90, 30));
+        Agregar.add(fam, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, 30));
 
         Prinicipal.addTab("Agregar Personas", Agregar);
 
@@ -319,13 +306,14 @@ public class Principal extends javax.swing.JFrame {
 
         mensajeria.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        miver.setEditable(false);
         miver.setColumns(20);
         miver.setRows(5);
         jScrollPane4.setViewportView(miver);
 
         mensajeria.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 233, 170));
 
-        jLabel27.setText("Mensajes de Kim:");
+        jLabel27.setText("Mensajes de Kanye:");
         mensajeria.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
 
         jLabel29.setText("Ver los mensajes de:");
@@ -364,6 +352,7 @@ public class Principal extends javax.swing.JFrame {
 
         mensajeria.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 270, 80));
 
+        ver.setEditable(false);
         ver.setColumns(20);
         ver.setRows(5);
         jScrollPane6.setViewportView(ver);
@@ -371,12 +360,22 @@ public class Principal extends javax.swing.JFrame {
         mensajeria.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 320, 180));
 
         enviar.setText("Enviar");
+        enviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enviarMouseClicked(evt);
+            }
+        });
         mensajeria.add(enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 230, -1));
 
         enviar2.setText("Enviar");
+        enviar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enviar2MouseClicked(evt);
+            }
+        });
         mensajeria.add(enviar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
 
-        jLabel31.setText("Mensajes de Kim a otra persona:");
+        jLabel31.setText("Mensajes de Kim a Kanye:");
         mensajeria.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 11, -1, -1));
 
         mienviar.setColumns(20);
@@ -829,7 +828,10 @@ public class Principal extends javax.swing.JFrame {
 
     private void personas3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_personas3ItemStateChanged
         if(panel==3){
-            
+            if (evt.getStateChange()==2) {
+                p= (Personas) personas.getSelectedItem();
+                ver.setText(p.getMensajes().toString());
+            }
         }
     }//GEN-LAST:event_personas3ItemStateChanged
 
@@ -838,13 +840,75 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_personas3ActionPerformed
 
     private void personas4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_personas4ItemStateChanged
-        
+        if(panel==3){
+            if (evt.getStateChange()==2) {
+                p= (Personas) personas.getSelectedItem();
+                ver.setText(p.getMensajes().toString());
+            }
+        }
     }//GEN-LAST:event_personas4ItemStateChanged
 
     private void personas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personas4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_personas4ActionPerformed
 
+    private void enviar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviar2MouseClicked
+        escribir.getText(); 
+        p.getMensajes().add(escribir.getText());
+         ver.setText(p.getMensajes().toString());
+    }//GEN-LAST:event_enviar2MouseClicked
+
+    private void enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarMouseClicked
+         String MiMensaje=mienviar.getText();
+         String x=EncriptadoCesar(MiMensaje,3);
+         System.out.println("Cifrado César: "+x);
+         String x2=descifradoCesar(x,3);
+         System.out.println("Descifrado: "+x2);
+         miver.setText("Cifrado César: "+x+"\n"+"Descifrado: "+x2);
+    }//GEN-LAST:event_enviarMouseClicked
+
+    public String EncriptadoCesar(String msm,int Desplazamiento){
+        StringBuilder cifrado = new StringBuilder();
+        Desplazamiento = Desplazamiento % 26;
+        for (int i = 0; i < msm.length(); i++) {
+            if (msm.charAt(i) >= 'a' && msm.charAt(i) <= 'z') {
+                if ((msm.charAt(i) + Desplazamiento) > 'z') {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento - 26));
+                } else {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento));
+                }
+            } else if (msm.charAt(i) >= 'A' && msm.charAt(i) <= 'Z') {
+                if ((msm.charAt(i) + Desplazamiento) > 'Z') {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento - 26));
+                } else {
+                    cifrado.append((char) (msm.charAt(i) + Desplazamiento));
+                }
+            }
+        }
+        return cifrado.toString();
+    }
+    
+    public static String descifradoCesar(String texto, int codigo) {
+        StringBuilder cifrado = new StringBuilder();
+        codigo = codigo % 26;
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) >= 'a' && texto.charAt(i) <= 'z') {
+                if ((texto.charAt(i) - codigo) < 'a') {
+                    cifrado.append((char) (texto.charAt(i) - codigo + 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) - codigo));
+                }
+            } else if (texto.charAt(i) >= 'A' && texto.charAt(i) <= 'Z') {
+                if ((texto.charAt(i) - codigo) < 'A') {
+                    cifrado.append((char) (texto.charAt(i) - codigo + 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) - codigo));
+                }
+            }
+        }
+        return cifrado.toString();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -936,11 +1000,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -951,7 +1013,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JRadioButton m1;
     private javax.swing.JTextField marca;
     private javax.swing.JPanel mensajeria;
-    private javax.swing.JTextArea mensajes;
     private javax.swing.JTextArea mienviar;
     private javax.swing.JTextArea miver;
     private javax.swing.JButton modificar;
@@ -979,4 +1040,7 @@ public class Principal extends javax.swing.JFrame {
     Personas persona; 
     Objetos cosa;
     int panel=0;
+    String men;
+    Personas p;
+   
 }
