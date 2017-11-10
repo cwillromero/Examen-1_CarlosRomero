@@ -15,12 +15,15 @@ public class ObjetosHogar extends Objetos{
     public String Intrsucciones;
     public String FechaCompra;
 
-    public ObjetosHogar(String TiempoVida, String Area, String Intrsucciones, String FechaCompra) {
+    public ObjetosHogar(String TiempoVida, String Area, String Intrsucciones, String FechaCompra, String Color, String Descripcion, String Marca, double Tamano, int Calidad, double Precio, Personas Duenio) {
+        super(Color, Descripcion, Marca, Tamano, Calidad, Precio, Duenio);
         this.TiempoVida = TiempoVida;
         this.Area = Area;
         this.Intrsucciones = Intrsucciones;
         this.FechaCompra = FechaCompra;
     }
+
+    
 
     public ObjetosHogar() {
         super();

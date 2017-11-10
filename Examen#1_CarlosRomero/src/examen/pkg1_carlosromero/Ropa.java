@@ -18,11 +18,14 @@ public class Ropa extends Objetos{
         super();
     }
 
-    public Ropa(String Talla, String Material, String Pais) {
+    public Ropa(String Talla, String Material, String Pais, String Color, String Descripcion, String Marca, double Tamano, int Calidad, double Precio, Personas Duenio) {
+        super(Color, Descripcion, Marca, Tamano, Calidad, Precio, Duenio);
         this.Talla = Talla;
         this.Material = Material;
         this.Pais = Pais;
     }
+
+    
 
     public String getTalla() {
         return Talla;

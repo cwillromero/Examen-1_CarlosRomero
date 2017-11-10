@@ -82,6 +82,22 @@ public class Principal extends javax.swing.JFrame {
         personas1 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         mensajeria = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        miver = new javax.swing.JTextArea();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        personas3 = new javax.swing.JComboBox<>();
+        jLabel30 = new javax.swing.JLabel();
+        personas4 = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        escribir = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ver = new javax.swing.JTextArea();
+        enviar = new javax.swing.JButton();
+        enviar2 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        mienviar = new javax.swing.JTextArea();
         A_cosas = new javax.swing.JPanel();
         color = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -106,8 +122,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
+        jLabel28 = new javax.swing.JLabel();
         cosass = new javax.swing.JComboBox<>();
-        jLabel27 = new javax.swing.JLabel();
+        eliminar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,11 +212,11 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Color", "Descripcion", "Marca", "Tamaño", "Calidad", "Precio", "Dueño"
+                "ID", "Nombre", "Edad", "Estado Civil", "Tipo de Persona"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, true, true
+                true, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -233,7 +250,7 @@ public class Principal extends javax.swing.JFrame {
         });
         Eliminar.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 170, 70));
 
-        Prinicipal.addTab("Eliminar Personas", Eliminar);
+        Prinicipal.addTab("Listar y Eliminar Personas", Eliminar);
 
         Modificar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -300,18 +317,75 @@ public class Principal extends javax.swing.JFrame {
 
         Prinicipal.addTab("Modificar Personas", Modificar);
 
-        javax.swing.GroupLayout mensajeriaLayout = new javax.swing.GroupLayout(mensajeria);
-        mensajeria.setLayout(mensajeriaLayout);
-        mensajeriaLayout.setHorizontalGroup(
-            mensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
-        );
-        mensajeriaLayout.setVerticalGroup(
-            mensajeriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 431, Short.MAX_VALUE)
-        );
+        mensajeria.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Prinicipal.addTab("Mensajes Kim", mensajeria);
+        miver.setColumns(20);
+        miver.setRows(5);
+        jScrollPane4.setViewportView(miver);
+
+        mensajeria.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 233, 170));
+
+        jLabel27.setText("Mensajes de Kim:");
+        mensajeria.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+
+        jLabel29.setText("Ver los mensajes de:");
+        mensajeria.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 260, 30));
+
+        personas3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                personas3ItemStateChanged(evt);
+            }
+        });
+        personas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                personas3ActionPerformed(evt);
+            }
+        });
+        mensajeria.add(personas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 230, 30));
+
+        jLabel30.setText("Enviar mensaje A:");
+        mensajeria.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 210, 20));
+
+        personas4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                personas4ItemStateChanged(evt);
+            }
+        });
+        personas4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                personas4ActionPerformed(evt);
+            }
+        });
+        mensajeria.add(personas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 230, 20));
+
+        escribir.setColumns(20);
+        escribir.setRows(5);
+        jScrollPane5.setViewportView(escribir);
+
+        mensajeria.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 270, 80));
+
+        ver.setColumns(20);
+        ver.setRows(5);
+        jScrollPane6.setViewportView(ver);
+
+        mensajeria.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 320, 180));
+
+        enviar.setText("Enviar");
+        mensajeria.add(enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 230, -1));
+
+        enviar2.setText("Enviar");
+        mensajeria.add(enviar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 40, -1, -1));
+
+        jLabel31.setText("Mensajes de Kim a otra persona:");
+        mensajeria.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 11, -1, -1));
+
+        mienviar.setColumns(20);
+        mienviar.setRows(5);
+        jScrollPane7.setViewportView(mienviar);
+
+        mensajeria.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 233, 160));
+
+        Prinicipal.addTab("Mensajes", mensajeria);
 
         A_cosas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -389,18 +463,16 @@ public class Principal extends javax.swing.JFrame {
 
         Prinicipal.addTab("Agregar Cosas", A_cosas);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nombre", "Edad", "Estado Civil", "Tipo de Objeto"
+                "Color", "Descripcion", "Marca", "Tamaño", "Calidad", "Precio", "Dueño"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false
+                true, false, false, false, false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -409,17 +481,64 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tabla1);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 650, 220));
+        jLabel28.setText("Objetos:");
 
         cosass.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cosassItemStateChanged(evt);
             }
         });
-        jPanel1.add(cosass, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 230, 30));
+        cosass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cosassActionPerformed(evt);
+            }
+        });
 
-        jLabel27.setText("Objetos:");
-        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
+        eliminar1.setText("Eliminar");
+        eliminar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminar1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jLabel28)
+                .addGap(22, 22, 22)
+                .addComponent(cosass, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(253, Short.MAX_VALUE)
+                .addComponent(eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(247, 247, 247))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel28))
+                    .addComponent(cosass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addComponent(eliminar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         Prinicipal.addTab("Listar Cosas", jPanel1);
 
@@ -492,6 +611,8 @@ public class Principal extends javax.swing.JFrame {
                 personas.setModel(modelo);
                 personas1.setModel(modelo);
                 personas2.setModel(modelo);
+                personas3.setModel(modelo);
+                personas4.setModel(modelo);
             }else if(per.isSelected()){
                 Ocupacion=JOptionPane.showInputDialog("Ingrese la ocupacion:","Jardinero");
                 Horario=JOptionPane.showInputDialog("Ingrese el Horario:","1:00-3:00");
@@ -505,6 +626,8 @@ public class Principal extends javax.swing.JFrame {
                 personas.setModel(modelo);
                 personas1.setModel(modelo);
                 personas2.setModel(modelo);
+                personas3.setModel(modelo);
+                personas4.setModel(modelo);
             }
             String c="kim123";
             String Contra=JOptionPane.showInputDialog(this, "Ingrese la Contarseña:","kim123");
@@ -551,9 +674,7 @@ public class Principal extends javax.swing.JFrame {
         if (tabla.getSelectedRow()>=0) {
             DefaultTableModel modelo =(DefaultTableModel) tabla.getModel();
             modelo.removeRow(tabla.getSelectedRow());
-            person.remove(tabla.getSelectedRow());
             tabla.setModel(modelo);
-            System.out.println(person);
         }
     }//GEN-LAST:event_eliminarMouseClicked
 
@@ -583,8 +704,11 @@ public class Principal extends javax.swing.JFrame {
         if(Prinicipal.getSelectedIndex()==1){
             panel=1;
         }
-        if(Prinicipal.getSelectedIndex()==3){
+        if(Prinicipal.getSelectedIndex()==2){
             panel=2;
+        }
+        if(Prinicipal.getSelectedIndex()==3){
+            panel=3;
         }
     }//GEN-LAST:event_PrinicipalStateChanged
 
@@ -625,15 +749,30 @@ public class Principal extends javax.swing.JFrame {
                 Zapatos F=new Zapatos(Talla,TipoSuela,Confort,Color,Descripcion,Marca,Tamano,Calidad,Precio, Duenio);
                 cosas.add(F);
                 DefaultComboBoxModel modelo=
-                        (DefaultComboBoxModel) personas.getModel();
+                        (DefaultComboBoxModel) cosass.getModel();
                 modelo.addElement(F);
                 cosass.setModel(modelo);
             }
             else if(ro.isSelected()){ 
-                Ropa Z=new Ropa();
+                String Talla=JOptionPane.showInputDialog("Ingrese la talla:","40");
+                String Material=JOptionPane.showInputDialog("Ingrese Material","Algodon");
+                String Pais=JOptionPane.showInputDialog("Ingrese Pais","Honduras");
+                DefaultComboBoxModel modelo=
+                        (DefaultComboBoxModel) cosass.getModel();
+                Ropa Z=new Ropa(Talla,Material,Pais,Color,Descripcion,Marca,Tamano,Calidad,Precio, Duenio);
+                modelo.addElement(Z);
+                cosass.setModel(modelo);
             }
             else if(ho.isSelected()){
-                
+                String TiempoVida=JOptionPane.showInputDialog("Ingrese Tiempo de Vida:","40");
+                String Area=JOptionPane.showInputDialog("Ingrese el Area:","Cocina");
+                String Intrsucciones=JOptionPane.showInputDialog("Ingrese Instrucciones:","Hola");
+                String FechaCompra=JOptionPane.showInputDialog("Ingrese Fecha de Compra:","10/10/2010");
+                DefaultComboBoxModel modelo=
+                        (DefaultComboBoxModel) cosass.getModel();
+                ObjetosHogar E=new ObjetosHogar(TiempoVida,Area,Intrsucciones,FechaCompra,Color,Descripcion,Marca,Tamano,Calidad,Precio, Duenio);
+                modelo.addElement(E);
+                cosass.setModel(modelo);
             }
             String c="kim123";
             String Contra=JOptionPane.showInputDialog(this, "Ingrese la Contarseña:","kim123");
@@ -658,8 +797,53 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_personasActionPerformed
 
     private void cosassItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cosassItemStateChanged
-        // TODO add your handling code here:
+       if (evt.getStateChange()==2) {
+                Objetos s= (Objetos) cosass.getSelectedItem();
+                Object[] newrow ={
+                    s.getColor(),
+                    s.getDescripcion(),
+                    s.getMarca(),
+                    s.getTamaño(),
+                    s.getCalidad(),
+                    s.getPrecio(),
+                    s.getDuenio().getNombre()
+                };
+                DefaultTableModel modelo=
+                (DefaultTableModel) tabla1.getModel();
+                modelo.addRow(newrow);
+                tabla1.setModel(modelo);
+       }
     }//GEN-LAST:event_cosassItemStateChanged
+
+    private void cosassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cosassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cosassActionPerformed
+
+    private void eliminar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminar1MouseClicked
+        if (tabla1.getSelectedRow()>=0) {
+            DefaultTableModel modelo =(DefaultTableModel) tabla1.getModel();
+            modelo.removeRow(tabla1.getSelectedRow());
+            tabla1.setModel(modelo);
+        }
+    }//GEN-LAST:event_eliminar1MouseClicked
+
+    private void personas3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_personas3ItemStateChanged
+        if(panel==3){
+            
+        }
+    }//GEN-LAST:event_personas3ItemStateChanged
+
+    private void personas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personas3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_personas3ActionPerformed
+
+    private void personas4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_personas4ItemStateChanged
+        
+    }//GEN-LAST:event_personas4ItemStateChanged
+
+    private void personas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personas4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_personas4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -713,6 +897,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField edad;
     private javax.swing.JTextField edad1;
     private javax.swing.JButton eliminar;
+    private javax.swing.JButton eliminar1;
+    private javax.swing.JButton enviar;
+    private javax.swing.JButton enviar2;
+    private javax.swing.JTextArea escribir;
     private javax.swing.JRadioButton f;
     private javax.swing.JRadioButton f1;
     private javax.swing.JRadioButton fam;
@@ -740,7 +928,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -751,17 +943,25 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JRadioButton m;
     private javax.swing.JRadioButton m1;
     private javax.swing.JTextField marca;
     private javax.swing.JPanel mensajeria;
     private javax.swing.JTextArea mensajes;
+    private javax.swing.JTextArea mienviar;
+    private javax.swing.JTextArea miver;
     private javax.swing.JButton modificar;
     private javax.swing.JRadioButton per;
     private javax.swing.JRadioButton per1;
     private javax.swing.JComboBox<String> personas;
     private javax.swing.JComboBox<String> personas1;
     private javax.swing.JComboBox<String> personas2;
+    private javax.swing.JComboBox<String> personas3;
+    private javax.swing.JComboBox<String> personas4;
     private javax.swing.JTextField precio;
     private javax.swing.JRadioButton ro;
     private javax.swing.JTable tabla;
@@ -771,6 +971,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField txID1;
     private javax.swing.JTextField txnombre;
     private javax.swing.JTextField txnombre1;
+    private javax.swing.JTextArea ver;
     private javax.swing.JRadioButton za;
     // End of variables declaration//GEN-END:variables
     ArrayList <Objetos> cosas=new ArrayList();
