@@ -601,11 +601,11 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel27">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Mensajes de Kanye:"/>
+                <Property name="text" type="java.lang.String" value="Ver Mensajes de Kanye:"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="120" y="230" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="100" y="230" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

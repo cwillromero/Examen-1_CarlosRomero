@@ -313,8 +313,8 @@ public class Principal extends javax.swing.JFrame {
 
         mensajeria.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 233, 170));
 
-        jLabel27.setText("Mensajes de Kanye:");
-        mensajeria.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        jLabel27.setText("Ver Mensajes de Kanye:");
+        mensajeria.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
         jLabel29.setText("Ver los mensajes de:");
         mensajeria.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 260, 30));
@@ -861,8 +861,16 @@ public class Principal extends javax.swing.JFrame {
     private void enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarMouseClicked
          String MiMensaje=mienviar.getText();
          String x=EncriptadoCesar(MiMensaje,3);
+         //Cifrado Cesar
          System.out.println("Cifrado César: "+x);
-         String x2=descifradoCesar(x,3);
+         CifradoVigenere Cv=new CifradoVigenere(x,"abc");
+         //Cifrado Vigenere de cesar
+         String Y=Cv.Cifrar();
+         System.out.println("Cifrado de Vigenère.: "+Y);
+         CifradoVigenere cv=new CifradoVigenere(Y,"abc");
+         String Y2=cv.DesCifrar();
+         System.out.println("Cifrado de Vigenère.: "+Y2);
+         String x2=descifradoCesar(Y2,3);
          System.out.println("Descifrado: "+x2);
          miver.setText("Cifrado César: "+x+"\n"+"Descifrado: "+x2);
     }//GEN-LAST:event_enviarMouseClicked
@@ -1042,5 +1050,5 @@ public class Principal extends javax.swing.JFrame {
     int panel=0;
     String men;
     Personas p;
-   
+    
 }
