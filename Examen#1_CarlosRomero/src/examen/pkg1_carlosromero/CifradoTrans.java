@@ -9,11 +9,11 @@ package examen.pkg1_carlosromero;
  *
  * @author Will
  */
-public class CifradoVigenere {
+public class CifradoTrans {
     public static String TxT,Seed;
 public static String Charset = "abcdefghijklmnopqrstuvwxyz";
 
-public CifradoVigenere(String TxT,String Seed){
+public CifradoTrans(String TxT,String Seed){
 this.Seed = Desn(Seed);
 this.TxT = TxT;
 }
@@ -54,7 +54,7 @@ b+=a.charAt(n);
 return b;
 }
 
-    CifradoVigenere() {
+    CifradoTrans() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

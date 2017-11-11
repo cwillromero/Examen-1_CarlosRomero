@@ -856,23 +856,33 @@ public class Principal extends javax.swing.JFrame {
         escribir.getText(); 
         p.getMensajes().add(escribir.getText());
          ver.setText(p.getMensajes().toString());
+         escribir.setText("");
     }//GEN-LAST:event_enviar2MouseClicked
 
     private void enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarMouseClicked
-         String MiMensaje=mienviar.getText();
+        System.out.println("------CIFRADOS------");
+        
+        String MiMensaje=mienviar.getText();
+        System.out.println("Mensaje: "+MiMensaje);
          String x=EncriptadoCesar(MiMensaje,3);
          //Cifrado Cesar
          System.out.println("Cifrado César: "+x);
-         CifradoVigenere Cv=new CifradoVigenere(x,"abc");
-         //Cifrado Vigenere de cesar
+         CifradoTrans Cv=new CifradoTrans(x,"abc");
+         //Cifrado por Transpocicion del cifrado cesar de cesar
          String Y=Cv.Cifrar();
-         System.out.println("Cifrado de Vigenère.: "+Y);
-         CifradoVigenere cv=new CifradoVigenere(Y,"abc");
+         System.out.println("Cifrado por trasposición: "+Y);
+         CifradoTrans cv=new CifradoTrans(Y,"abc");
+         CifrarVigenere cc=new CifrarVigenere();
+         //Cifrado Vigenere del Cifrado por Transpocicion del cifrado cesar de cesar
+         String Z=cc.Cifrar(Y);
+         System.out.println("Cifrado Vigenere: "+Z);
+         String Z1=cc.Descifrar(Z);
+         System.out.println("Descifrado Vigenere: "+Z1);
          String Y2=cv.DesCifrar();
-         System.out.println("Cifrado de Vigenère.: "+Y2);
+         System.out.println("Descifrado por trasposición: "+Y2);
          String x2=descifradoCesar(Y2,3);
          System.out.println("Descifrado: "+x2);
-         miver.setText("Cifrado César: "+x+"\n"+"Descifrado: "+x2);
+         miver.setText(MiMensaje);
     }//GEN-LAST:event_enviarMouseClicked
 
     public String EncriptadoCesar(String msm,int Desplazamiento){
